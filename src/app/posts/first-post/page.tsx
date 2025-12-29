@@ -1,4 +1,10 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'first-post',
+  description: 'Show first post.',
+};
 
 export default function FirstPostPage() {
   return (
