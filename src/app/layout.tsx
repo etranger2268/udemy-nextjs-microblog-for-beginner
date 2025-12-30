@@ -28,9 +28,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${inter.variable} ${notoSansJP.variable} antialiased font-sans`}>
+      <body
+        className={`${inter.variable} ${notoSansJP.variable} antialiased font-sans max-w-311 mx-auto py-0 px-4 mt-12 mb-24 `}
+      >
         <header>
-          <Image src="/profile.png" alt="Icon" width={48} height={48} />
+          <Image src="/profile.png" alt="Icon" width={48} height={48}/>
           <h1>{NAME}</h1>
         </header>
         <main>{children}</main>
