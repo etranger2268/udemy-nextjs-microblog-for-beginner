@@ -31,9 +31,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${notoSansJP.variable} antialiased font-sans max-w-311 mx-auto py-0 px-4 mt-12 mb-24 `}
       >
-        <header>
-          <Image src="/profile.png" alt="Icon" width={48} height={48}/>
-          <h1>{NAME}</h1>
+        <header className="flex flex-col items-center">
+          <Image src="/profile.png" alt="Icon" width={60} height={60} className="rounded-full"/>
+          <h1 className="text-2xl font-bold mt-2 mb-0">{NAME}</h1>
         </header>
         <main>{children}</main>
       </body>
