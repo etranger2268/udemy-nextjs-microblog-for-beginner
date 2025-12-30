@@ -35,7 +35,7 @@ export default function RootLayout({
           <Image src="/profile.png" alt="Icon" width={60} height={60} className="rounded-full"/>
           <h1 className="text-2xl font-bold mt-2 mb-0">{NAME}</h1>
         </header>
-        <main>{children}</main>
+        {children}
       </body>
     </html>
   );
