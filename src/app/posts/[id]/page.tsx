@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import { getPostData } from '@/lib/post';
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -23,5 +24,6 @@ export default function PostPage({ params }: Props) {
 
 async function PostPageContent({ params }: Props) {
   const { id } = await params;
+  getPostData(id);
   return <h2 className="text-xl font-semibold">ID: {id}</h2>;
 }
