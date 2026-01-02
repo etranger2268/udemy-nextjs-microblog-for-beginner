@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import type { PostContent } from '@/lib/post';
 import { getPostData } from '@/lib/post';
 
 type Props = {
@@ -24,6 +25,6 @@ export default function PostPage({ params }: Props) {
 
 async function PostPageContent({ params }: Props) {
   const { id } = await params;
-  getPostData(id);
-  return <h2 className="text-xl font-semibold">ID: {id}</h2>;
+  const postContent: PostContent = await getPostData(id);
+  return <div>{postContent}</div>;
 }
