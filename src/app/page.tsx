@@ -1,8 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { PROFILE } from '@/constants';
+import { getPostsData } from '@/lib/post';
 
 export default function Home() {
+  const data = getPostsData();
+
   return (
     <main className="mt-2 space-y-10">
       <section className="text-center">
