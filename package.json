@@ -7,11 +7,9 @@
     "start": "next start",
     "preview": "next build && next start",
     "clean": "rm -rf .next",
-
     "check": "biome check .",
     "fix": "biome check --write .",
     "format": "biome format --write .",
-
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
