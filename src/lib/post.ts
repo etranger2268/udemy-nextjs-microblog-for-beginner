@@ -53,3 +53,8 @@ export const getPostData = async (id: string): Promise<PostContent> => {
   const { title, date } = matterResult.data;
   return { title, date, blogContentHTML };
 };
+
+export const getPostsID = () => {
+  const fileNames = fs.readdirSync(postsDirectory);
+  return fileNames.map((fileName) => ({ id: fileName.replace(/\.md$/, '') }));
+};

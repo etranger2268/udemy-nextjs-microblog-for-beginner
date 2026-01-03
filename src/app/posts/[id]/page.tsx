@@ -1,18 +1,15 @@
 import { Suspense } from 'react';
 import type { PostContent } from '@/lib/post';
-import { getPostData } from '@/lib/post';
+import { getPostData, getPostsID } from '@/lib/post';
 
 type Props = {
   params: Promise<{ id: string }>;
 };
 
 export async function generateStaticParams() {
-  return [
-    { id: 'pre-rendering' },
-    { id: 'prerendering-about' },
-    { id: 'react-next' },
-    { id: 'ssg-ssr' },
-  ];
+  const ret = getPostsID();
+  console.log(ret);
+  return ret;
 }
 
 export default function PostPage({ params }: Props) {
