@@ -13,6 +13,7 @@ export type PostMeta = {
   thumbnail: string;
 };
 
+// TODO: error handling
 // mdファイルのデータを取り出す
 export const getPostsData = (): PostMeta[] => {
   const fileNames = fs.readdirSync(postsDirectory);
@@ -44,6 +45,7 @@ export type PostContent = {
   blogContentHTML: string;
 };
 
+// TODO: error handling
 export const getPostData = async (id: string): Promise<PostContent> => {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContent = fs.readFileSync(fullPath, 'utf8');
@@ -52,4 +54,10 @@ export const getPostData = async (id: string): Promise<PostContent> => {
   const blogContentHTML = String(blogContent);
   const { title, date } = matterResult.data;
   return { title, date, blogContentHTML };
+};
+
+// TODO: error handling
+export const getPostsID = () => {
+  const fileNames = fs.readdirSync(postsDirectory);
+  return fileNames.map((fileName) => ({ id: fileName.replace(/\.md$/, '') }));
 };
