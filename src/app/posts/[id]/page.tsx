@@ -25,6 +25,12 @@ export default function PostPage({ params }: Props) {
 
 async function PostPageContent({ params }: Props) {
   const { id } = await params;
-  const postContent: PostContent = await getPostData(id);
-  return <div>{postContent}</div>;
+  const { title, date, blogContentHTML }: PostContent = await getPostData(id);
+  return (
+    <article className="space-y-4">
+      <h1 className="text-3xl font-extrabold">{title}</h1>
+      <small className="text-gray-700">{date}</small>
+      <div dangerouslySetInnerHTML={{ __html: blogContentHTML }} />
+    </article>
+  );
 }

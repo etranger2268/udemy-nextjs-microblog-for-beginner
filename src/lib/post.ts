@@ -35,11 +35,14 @@ export const getPostsData = (): PostMeta[] => {
     };
   });
 
-  // TODO: return
   return allPostsData;
 };
 
-export type PostContent = string;
+export type PostContent = {
+  title: string;
+  date: string;
+  blogContentHTML: string;
+};
 
 export const getPostData = async (id: string): Promise<PostContent> => {
   const fullPath = path.join(postsDirectory, `${id}.md`);
@@ -47,5 +50,6 @@ export const getPostData = async (id: string): Promise<PostContent> => {
   const matterResult = matter(fileContent);
   const blogContent = await remark().use(remarkHtml).process(matterResult.content);
   const blogContentHTML = String(blogContent);
-  return blogContentHTML;
+  const { title, date } = matterResult.data;
+  return { title, date, blogContentHTML };
 };
