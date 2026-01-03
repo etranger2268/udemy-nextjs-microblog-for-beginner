@@ -7,9 +7,7 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  const ret = getPostsID();
-  console.log(ret);
-  return ret;
+  return getPostsID();
 }
 
 export default function PostPage({ params }: Props) {
